@@ -1,10 +1,8 @@
 import pygame as pg
-from models import Game, Ball
+from models import Game
 
 game = Game()
 game.initialize()
-table = game.table
-game_display = game.gameDisplay
 clock = game.clock
 game.start_balls()
 
@@ -14,11 +12,11 @@ while not gameExit:
 		if event.type == pg.QUIT:
 			gameExit = True
 
-	
-	game_display.fill("dark green")
+
 	game.move_balls()
+	game.game_display.fill("dark green")
 	game.display_balls()
-	table.update_display()
+	game.update_display()
 	clock.tick(50)
 
 game.quit()
